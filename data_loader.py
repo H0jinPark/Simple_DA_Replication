@@ -5,7 +5,7 @@ from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
 
 # 1. 이미지 전처리(Transform) 규칙 정하기
-# 연구용으로 가장 많이 쓰이는 규격인 224x224 사이즈로 맞출게요.
+# 연구용으로 가장 많이 쓰이는 규격인 224x224 사이즈
 data_transforms = transforms.Compose([
     transforms.Resize((224, 224)),       # 이미지 크기를 똑같이 맞추기
     transforms.ToTensor(),                # 파이썬 이미지를 파이치치 텐서(숫자)로 변경
@@ -13,7 +13,7 @@ data_transforms = transforms.Compose([
                          [0.229, 0.224, 0.225]) # 표준편차로 색감 정규화 (필수!)
 ])
 
-# 2. 데이터 경로 설정 (호진 님 컴퓨터 경로에 맞게!)
+# 2. 데이터 경로 설정
 data_root = r"C:\Users\akska\Research\Office-31"
 
 # 도메인 이름들 (폴더명과 똑같이 적어야 해요)
@@ -38,7 +38,7 @@ if __name__ == "__main__":
     # 딱 한 묶음만 꺼내서 확인
     images, labels = next(iter(amazon_loader))
     
-    print(f"이미지 묶음 크기: {images.shape}") # [32, 3, 224, 224]가 나와야 해요!
+    print(f"이미지 묶음 크기: {images.shape}") # [32, 3, 224, 224]
     print(f"첫 번째 묶음의 라벨: {labels}")
     print("데이터 로딩 성공!")
 
@@ -55,4 +55,4 @@ if __name__ == "__main__":
     
     plt.imshow(sample_img)
     plt.title(f"Label: {labels[0].item()}")
-    plt.show() # 이 명령어를 치면 창이 뜹니다!
+    plt.show()
