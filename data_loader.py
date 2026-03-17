@@ -41,12 +41,9 @@ if __name__ == "__main__":
     print(f"이미지 묶음 크기: {images.shape}") # [32, 3, 224, 224]
     print(f"첫 번째 묶음의 라벨: {labels}")
     print("데이터 로딩 성공!")
-
-    amazon_loader = get_loader('amazon')
-    images, labels = next(iter(amazon_loader))
     
     # 첫 번째 이미지 한 장 꺼내기 [3, 224, 224]
-    sample_img = images[0].numpy().transpose((1, 2, 0)) 
+    sample_img = images[0].numpy().transpose((1, 2, 0))
     
     # 정규화된 이미지를 다시 원래대로 되돌리는 작업 (화면에 잘 보이게)
     mean = [0.485, 0.456, 0.406]
