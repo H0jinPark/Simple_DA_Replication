@@ -3,18 +3,17 @@ import torch.nn as nn
 from torchvision import models
 
 def get_model(num_classes=31):
-    # 1. 이미 학습된 ResNet50 모델 불러오기 (Pre-trained)
-    # weights=models.ResNet50_Weights.DEFAULT 가 요즘 최신 방식이에요!
-    model = models.resnet50(weights=models.ResNet50_Weights.DEFAULT)
+    # 1. 깃털처럼 가벼운 MobileNetV2 등판!
+    model = models.mobilenet_v2(weights=models.MobileNet_V2_Weights.DEFAULT)
     
-    # 2. 마지막 층(Fully Connected)을 우리 데이터셋에 맞게 바꾸기
-    # ResNet50의 마지막 출력은 보통 1000개인데, Office-31은 클래스가 31개니까요!
-    in_features = model.fc.in_features
-    model.fc = nn.Linear(in_features, num_classes)
+    # 2. 뇌 이식 수술 (주의: ResNet이랑 구조가 살짝 다릅니다!)
+    # ResNet은 마지막 층 이름이 'fc'였지만, 
+    # MobileNetV2는 'classifier'라는 묶음의 [1]번째에 입이 달려있어요.
+    in_features = model.classifier[1].in_features
+    model.classifier[1] = nn.Linear(in_features, num_classes)
     
     return model
 
 if __name__ == "__main__":
     my_model = get_model()
-    print(my_model)
-    print("\n모델 생성 성공!")
+    print("MobileNetV2 이식 완료! 깃털처럼 가볍습니다 ㅋㅋㅋ")
