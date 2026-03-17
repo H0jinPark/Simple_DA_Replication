@@ -27,7 +27,7 @@ def get_loader(domain_name, batch_size=32):
     dataset = datasets.ImageFolder(root=path, transform=data_transforms)
     
     # 데이터를 묶음(Batch) 단위로 나누어주는 로더 생성
-    loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+    loader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=4)
     
     return loader
 
