@@ -13,7 +13,7 @@ python -m pip install -r requirements.txt
 2. Train a model on one domain and optionally evaluate on another:
 
 ```bash
-python train_office31.py --source amazon --target webcam --epochs 10 --batch-size 32
+python train.py --source amazon --target webcam --epochs 10 --batch-size 32
 ```
 
 3. The script saves a checkpoint (`checkpoint.pth` by default) containing the model weights and class mapping.
