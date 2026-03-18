@@ -13,7 +13,6 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # 3. 덤프트럭(DataLoader) 실전 배치!
 if __name__ == '__main__':
-    print(f"현재 훈련이 진행될 장치: {device}")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"현재 훈련이 진행될 장치: {device}") 
     # (경로는 호진 님 폴더 구조에 맞춰서 'amazon', 'webcam' 등으로 지정해주세요)
