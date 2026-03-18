@@ -5,9 +5,9 @@ from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
 
 # 1. 이미지 전처리(Transform) 규칙 정하기
-# 연구용으로 가장 많이 쓰이는 규격인 224x224 사이즈
+# 연구용으로 가장 많이 쓰이는 규격인 128x128 사이즈
 data_transforms = transforms.Compose([
-    transforms.Resize((224, 224)),       # 이미지 크기를 똑같이 맞추기
+    transforms.Resize((128, 128)),       # 이미지 크기를 똑같이 맞추기
     transforms.ToTensor(),                # 파이썬 이미지를 파이치치 텐서(숫자)로 변경
     transforms.Normalize([0.485, 0.456, 0.406], # ImageNet 데이터셋의 평균과
                          [0.229, 0.224, 0.225]) # 표준편차로 색감 정규화 (필수!)
